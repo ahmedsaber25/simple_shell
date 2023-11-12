@@ -15,17 +15,17 @@ char *copyStringWithLimit(char *destination, char *source, int n)
     index = 0;
     while (source[i] != '\0' && i < n - 1)
     {
-        destination[i] = source[i];
-        i++;
+          destination[i] = source[i];
+          i++;
     }
     if (i < n)
     {
-        j = i;
-        while (j < n)
-        {
-            destination[j] = '\0';
-            j++;
-        }
+          j = i;
+          while (j < n)
+          {
+              destination[j] = '\0';
+              j++;
+          }
     }
     return string;
 }
@@ -46,15 +46,15 @@ char *concatenateStringWithLimit(char *destination, char *source, int n)
     j = 0;
 
     while (destination[i] != '\0')
-        i++;
+           i++;
     while (source[j] != '\0' && j < n)
-        destination[i] = source[j];
-        i++;
-        j++;
+           destination[i] = source[j];
+           i++;
+           j++;
     }
     if (j < n)
-        destination[i] = '\0';
-    return string;
+           destination[i] = '\0';
+    return (string);
 }
 
 /**
@@ -66,9 +66,9 @@ char *concatenateStringWithLimit(char *destination, char *source, int n)
 char *findCharacter(char *string, char c)
 {
     do {
-        if (*string == c)
-            return string;
+               if (*string == c)
+               return (string);
     } while (*string++ != '\0');
 
-    return NULL;
+    return (NULL);
 }
