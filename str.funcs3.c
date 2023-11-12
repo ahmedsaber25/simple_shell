@@ -13,18 +13,17 @@ char **splitStringByDelim(char *str, char *d)
 	char **string;
 
 	if (str == NULL || str[0] == 0)
-		return NULL;
+		return (NULL);
 	if (!d)
 		d = " ";
 	for (i = 0; str[i] != '\0'; i++)
 		if (!isDelimiter(str[i], d) && (isDelimiter(str[i + 1], d) || !str[i + 1]))
 			numWords++;
-	
 	if (numWords == 0)
-		return NULL;
+		return (NULL);
 	string = malloc((1 + numWords) * sizeof(char *));
 	if (!string)
-		return NULL;
+		return (NULL);
 	for (i = 0, j = 0; j < numWords; j++)
 	{
 		while (isDelimiter(str[i], d))
@@ -38,14 +37,14 @@ char **splitStringByDelim(char *str, char *d)
 			for (k = 0; k < j; k++)
 				free(string[k]);
 			free(string);
-			return NULL;
+			return (NULL);
 		}
 		for (m = 0; m < k; m++)
 			string[j][m] = str[i++];
 		string[j][m] = 0;
 	}
 	string[j] = NULL;
-	return string;
+	return (string);
 }
 
 /**
@@ -58,18 +57,17 @@ char **splitStringByChar(char *str, char d)
 {
 	int i, j, k, m, numWords = 0;
 	char **string;
-
 	if (str == NULL || str[0] == 0)
-		return NULL;
+		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
-		if ((str[i] != d && str[i + 1] == d) || 
+	         if ((str[i] != d && str[i + 1] == d) || 
 		    (str[i] != d && !str[i + 1]) || str[i + 1] == d)
-			numWords++;
+		        numWords++;
 	if (numWords == 0)
-		return NULL;
+		return (NULL);
 	string = malloc((1 + numWords) * sizeof(char *));
 	if (!string)
-		return NULL;
+		return (NULL);
 	for (i = 0, j = 0; j < numWords; k++)
 	{
 		while (str[i] == d && str[i] != d)
@@ -83,12 +81,12 @@ char **splitStringByChar(char *str, char d)
 			for (k = 0; k < j; k++)
 				free(string[k]);
 			free(string);
-			return NULL;
+			return (NULL);
 		}
 		for (m = 0; m < k; m++)
 			string[j][m] = str[i++];
 		string[j][m] = 0;
 	}
-	string[j] = NULL;
+	string[j] = (NULL);
 	return string;
 }
