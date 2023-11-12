@@ -12,14 +12,14 @@ char *copyString(char *destination, char *source)
 	int i = 0;
 
 	if (destination == source || source == NULL)
-		return destination;
+		return (destination);
 	while (source[i])
 	{
 		destination[i] = source[i];
 		i++;
 	}
 	destination[i] = '\0';
-	return destination;
+	return (destination);
 }
 
 /**
@@ -34,7 +34,7 @@ char *duplicateString(const char *str)
 	char *ret;
 
 	if (str == NULL)
-		return NULL;
+		return (NULL);
 	while (*str++)
 		length ++;
 	ret = malloc(sizeof(char) * (length  + 1));
