@@ -67,7 +67,7 @@ char *findCharacter(char *string, char c)
 {
     do {
                if (*string == c)
-               return (string);
+                   return (string);
     } while (*string++ != '\0');
 
     return (NULL);
