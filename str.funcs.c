@@ -11,11 +11,11 @@ int stringLength(char *string)
 	int i = 0;
 
 	if (!string)
-		return 0;
+		return (0);
 
 	while (*string++)
 		i++;
-	return i;
+	return (i);
 }
 
 /**
@@ -35,7 +35,7 @@ int stringCompare(char *string1, char *string2)
 		string2++;
 	}
 	if (*string1 == *string2)
-		return 0;
+		return (0);
 	else
 		return (*string1 < *string2 ? -1 : 1);
 }
@@ -51,8 +51,8 @@ char *startsWith(const char *haystack, const char *needle)
 {
 	while (*needle)
 		if (*needle++ != *haystack++)
-			return NULL;
-	return (char *)haystack;
+			return (NULL);
+	return ((char *)haystack);
 }
 
 /**
