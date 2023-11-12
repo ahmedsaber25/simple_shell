@@ -71,5 +71,5 @@ char *stringConcat(char *destination, char *source)
 	while (*source)
 		*destination++ = *source++;
 	*destination = *source;
-	return ret;
+	return (ret);
 }
