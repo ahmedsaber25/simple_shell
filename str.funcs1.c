@@ -36,13 +36,13 @@ char *duplicateString(const char *str)
 	if (str == NULL)
 		return (NULL);
 	while (*str++)
-		length ++;
+		length++;
 	ret = malloc(sizeof(char) * (length  + 1));
 	if (!ret)
-		return NULL;
-	for (len++; length --;)
-		ret[length ] = *--str;
-	return ret;
+		return (NULL);
+	for (len++; length--;)
+		ret[length] = *--str;
+	return (ret);
 }
 
 /**
@@ -82,5 +82,5 @@ int _putchar(char c)
 	}
 	if (c != FLUSH_BUFFER)
 		buf[i++] = c;
-	return 1;
+	return (1);
 }
