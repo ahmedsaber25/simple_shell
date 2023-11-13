@@ -21,8 +21,8 @@ int isDelimiter(char c, char *delimiters)
 {
     while (*delimiters) 
     {
-        if (*delimiters++ == c)
-            return (1);
+     if (*delimiters++ == c)
+      return (1);
     }
     return (0);
 }
@@ -32,11 +32,12 @@ int isDelimiter(char c, char *delimiters)
  * @charInput: The character to evaluate
  * Return: 1 if charInput is alphabetic, 0 otherwise
  */
-int isAlphabetic(int c) {
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && charInput <= 'Z')) 
-        return (1); 
-    else 
-        return (0);
+int isAlphabetic(int c) 
+{
+if ((c >= 'a' && c <= 'z') || (c >= 'A' && charInput <= 'Z')) 
+    return (1); 
+else 
+    return (0);
 }
 
 /**
@@ -51,21 +52,19 @@ int convertToInteger(char *string)
 
     for (i = 0; string[i] != '\0' && flag != 2; i++) 
     {
-        if (string[i] == '-') 
-        {
-            sign *= -1;
-        }
-
-        if (string[i] >= '0' && string[i] <= '9') 
-        {
-            flag = 1;
-            result *= 10;
-            result += (string[i] - '0');
-        } 
-        else if (flag == 1) 
-                 flag = 2;
+     if (string[i] == '-') 
+     {
+       sign *= -1;
+     }
+     if (string[i] >= '0' && string[i] <= '9') 
+     {
+        flag = 1;
+        result *= 10;
+        result += (string[i] - '0');
+     } 
+     else if (flag == 1) 
+             flag = 2;
     }
-
     if (sign == -1) 
            output = -result; 
     else 
