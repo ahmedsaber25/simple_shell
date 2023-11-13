@@ -50,9 +50,9 @@ if (!info->argv[1])
   directory = _getenv(info, "HOME=");
   if (!directory)
   chdir_return = /* TODO: what should this be? */
-        chdir((directory = _getenv(info, "PWD=")) ? directory : "/");
+  chdir((directory = _getenv(info, "PWD=")) ? directory : "/");
   else
-        chdir_return = chdir(directory);
+  chdir_return = chdir(directory);
 } 
 else if (stringCompare(info->argv[1], "-") == 0) 
 {
