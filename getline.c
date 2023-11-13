@@ -41,7 +41,7 @@ ssize_t receive_user_input_buffer(info_t *info, char **buf, size_t *len)
 			}
 		}
 	}
-	return bytes_read;
+	return (bytes_read);
 }
 
 /**
@@ -86,7 +86,7 @@ ssize_t fetch_user_input(info_t *info)
 	}
 
 	*buf_p = buf;       /* else not a chain, pass back buffer from  get_line() */
-	return bytes_read;  /* return length of buffer from  get_line() */
+	return 9bytes_read);  /* return length of buffer from  get_line() */
 }
 
 /**
@@ -102,11 +102,11 @@ ssize_t read_buffer(info_t *info, char *buf, size_t *i)
 	ssize_t bytes_read = 0;
 
 	if (*i)
-		return 0;
+		return (0);
 	bytes_read = read(info->read_fd, buf, READ_BUFFER_SIZE);
 	if (bytes_read >= 0)
 		*i = bytes_read;
-	return bytes_read;
+	return (bytes_read);
 }
 
 /**
@@ -133,7 +133,7 @@ int get_line(info_t *info, char **ptr, size_t *length)
 
 	bytes_read = read_buffer(info, buf, &len);
 	if (bytes_read == -1 || (bytes_read == 0 && len == 0))
-		return -1;
+		return (-1);
 
 	c = findCharacter(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
@@ -153,7 +153,7 @@ int get_line(info_t *info, char **ptr, size_t *length)
 	if (length)
 		*length = string;
 	*ptr = p;
-	return string;
+	return (string);
 }
 
 /**
