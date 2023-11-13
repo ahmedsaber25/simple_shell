@@ -17,7 +17,7 @@ int hsh(info_t *info, char **av)
 		clear_info(info);
 		if (isInteractiveMode(info))
 			_puts("$ ");
-		        _eputchar(FLUSH_BUFFER);
+		_eputchar(FLUSH_BUFFER);
 		read_status = fetch_user_input(info);
 		if (bytes_read != -1)
 		{
@@ -138,7 +138,7 @@ void fork_command(info_t *info)
 	}
 	if (child_pid == 0)
 	{
-		if (execve(info->path, info->argv,get_environ(info)) == -1)
+		if (execve(info->path, info->argv, get_environ(info)) == -1)
 		{
 			free_info(info, 1);
 			if (errno == EACCES)
