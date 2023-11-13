@@ -38,9 +38,9 @@ int hsh(info_t *info, char **av)
 	{
 		if (info->error_number  == -1)
 			exit(info->status);
-		exit(info->error_number );
+		exit(info->error_number);
 	}
-	return built_in_result;
+	return (built_in_result);
 }
 
 /**
@@ -74,7 +74,7 @@ int locate_builtin(info_t *info)
 			built_in_result = built_in_table[i].func(info);
 			break;
 	}
-	return built_in_result;
+	return (built_in_result);
 }
 
 /**
