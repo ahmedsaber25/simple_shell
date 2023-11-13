@@ -30,9 +30,9 @@ int is_command_chain(info_t *info, char *buf, size_t *p)
         info->command_buffer_type = COMMAND_CHAIN;
     } 
     else 
-        return 0;
+        return (0);
     *p = j;
-    return 1;
+    return (1);
 }
 
 /**
@@ -85,17 +85,17 @@ int replace_shell_alias(info_t *info)
     {
         node = find_node_starts_with(info->alias, info->argv[0], '=');
         if (!node)
-            return 0;
+            return (0);
         free(info->argv[0]);
         p = findCharacter(node->str, '=');
         if (!p)
-            return 0;
+            return (0);
         p = duplicateString (p + 1);
         if (!p)
-            return 0;
+            return (0);
         info->argv[0] = p;
     }
-    return 1;
+    return (1);
 }
 
 /**
@@ -132,7 +132,7 @@ int replace_variables(info_t *info)
         }
         replace_string(&info->argv[i], duplicate_string(""));
     }
-    return 0;
+    return (0);
 }
 
 /**
@@ -146,5 +146,5 @@ int replace_string(char **old_string, char *new_string)
 {
     free(*old_string);
     *old_string = new_string;
-    return 1;
+    return (1);
 }
