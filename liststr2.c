@@ -50,7 +50,7 @@ char **convert_list_to_strings(list_t *head)
 		string_array[i] = string;
 	}
 	string_array[i] = NULL;
-	return string_array;
+	return (string_array);
 }
 
 /**
