@@ -58,17 +58,16 @@ int convertToInteger(char *string)
      }
      if (string[i] >= '0' && string[i] <= '9') 
      {
-        flag = 1;
-        result *= 10;
-        result += (string[i] - '0');
+    flag = 1;
+    result *= 10;
+    result += (string[i] - '0');
      } 
      else if (flag == 1) 
-             flag = 2;
+     flag = 2;
     }
     if (sign == -1) 
-           output = -result; 
+    output = -result; 
     else 
-        output = result;
-
+    output = result;
     return (output);
 }
