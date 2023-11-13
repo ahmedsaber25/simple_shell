@@ -20,13 +20,13 @@ int my_exit(info_t *info)
            displayError(info, "Illegal number: ");
             _eputs(info->argv[1]);
 	    _eputchar('\n');
-            return 1;
+            return (1);
         }
         info->error_number = errorToInteger (info->argv[1]);
-        return -2;
+        return -(2);
     }
     info->error_number = -1;
-    return -2;
+    return (-2);
 }
 
 /**
@@ -60,7 +60,7 @@ int my_cd(info_t *info)
 	{
             _puts(current_directory);
             _putchar('\n');
-            return 1;
+            return (1);
         }
         _puts(_getenv(info, "OLDPWD="));
         _putchar('\n');
@@ -78,7 +78,7 @@ int my_cd(info_t *info)
         _setenv(info, "OLDPWD", _getenv(info, "PWD="));
         _setenv(info, "PWD", getcwd(buffer, 1024));
     }
-    return 0;
+    return (0);
 }
 
 /**
@@ -95,5 +95,5 @@ int my_help(info_t *info)
    _puts("help call works. Function not yet implemented \n");
     if (0)
         _puts(*argument_array); /* temporary unused workaround */
-    return 0;
+    return (0);
 }
