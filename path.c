@@ -13,13 +13,13 @@ int checkIfExecutable(info_t *info, char *path)
 
     (void)info;
     if (!path || stat(path, &st)) 
-        return 0;
+        return (0);
 
     if (st.st_mode & S_IFREG) 
     {
-        return 1;
+        return (1);
     }
-    return 0;
+    return (0);
 }
 
 /**
@@ -56,11 +56,11 @@ char *findCommandPath(info_t *info, char *pathString, char *command)
     char *path;
 
     if (!pathString) 
-        return NULL;
+        return (NULL);
     if ((stringLength(command) > 2) && startsWith(command, "./")) 
     {
         if (checkIfExecutable(info, command)) 
-            return command;
+            return (command);
     }
     while (1) 
     {
@@ -75,12 +75,12 @@ char *findCommandPath(info_t *info, char *pathString, char *command)
                 stringConcat(path, command);
             }
             if (checkIfExecutable(info, commandPath)) 
-                return commandPath;
+                return (commandPath);
             if (!pathString[i]) 
                 break;
             currentPosition = i;
         }
         i++;
     }
-    return NULL;
+    return (NULL);
 }
