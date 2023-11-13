@@ -51,19 +51,19 @@ void check_command_chain(info_t *info, char *buf, size_t *p, size_t i, size_t le
 
     if (info->command_buffer_type == COMMAND_AND) 
     {
-        if (info->status) 
-        {
-        buf[i] = 0;
-        j = len;
-        }
+    if (info->status) 
+    {
+    buf[i] = 0;
+    j = len;
+    }
     }
     if (info->command_buffer_type == COMMAND_OR) 
     {
-        if (!info->status) 
-        {
-        buf[i] = 0;
-        j = len;
-        }
+    if (!info->status) 
+    {
+    buf[i] = 0;
+    j = len;
+    }
     }
     *p = j;
 }
@@ -82,17 +82,17 @@ int replace_shell_alias(info_t *info)
 
     for (i = 0; i < 10; i++) 
     {
-        node = find_node_starts_with(info->alias, info->argv[0], '=');
-        if (!node)
-        return (0);
-        free(info->argv[0]);
-        p = findCharacter(node->str, '=');
-        if (!p)
-        return (0);
-        p = duplicateString (p + 1);
-        if (!p)
-        return (0);
-        info->argv[0] = p;
+    node = find_node_starts_with(info->alias, info->argv[0], '=');
+     if (!node)
+    return (0);
+    free(info->argv[0]);
+    p = findCharacter(node->str, '=');
+    if (!p)
+    return (0);
+    p = duplicateString (p + 1);
+    if (!p)
+    return (0);
+    info->argv[0] = p;
     }
     return (1);
 }
@@ -110,26 +110,26 @@ int replace_variables(info_t *info)
 
     for (i = 0; info->argv[i]; i++) 
     {
-        if (info->argv[i][0] != '$' || !info->argv[i][1])
-        continue;
+    if (info->argv[i][0] != '$' || !info->argv[i][1])
+    continue;
 
-        if (!stringCompare(info->argv[i], "$?")) 
-        {
-        replace_string(&(info->argv[i]), duplicate_string(convertToText (info->status, 10, 0)));
-        continue;
-        }
-        if (!stringCompare(info->argv[i], "$$")) 
-        {
-        replace_string(&(info->argv[i]), duplicate_string(convertToText (get_process_id(), 10, 0)));
-        continue;
-        }
-        node = find_node_starts_with(info->env, &info->argv[i][1], '=');
-        if (node) 
-        {
-        replace_string(&(info->argv[i]), duplicate_string(findCharacter(node->str, '=') + 1));
-        continue;
-        }
-        replace_string(&info->argv[i], duplicate_string(""));
+    if (!stringCompare(info->argv[i], "$?")) 
+    {
+    replace_string(&(info->argv[i]), duplicate_string(convertToText (info->status, 10, 0)));
+    continue;
+    }
+    if (!stringCompare(info->argv[i], "$$")) 
+    {
+     replace_string(&(info->argv[i]), duplicate_string(convertToText (get_process_id(), 10, 0)));
+    continue;
+    }
+    node = find_node_starts_with(info->env, &info->argv[i][1], '=');
+    if (node) 
+    {
+    replace_string(&(info->argv[i]), duplicate_string(findCharacter(node->str, '=') + 1));
+    continue;
+    }
+    replace_string(&info->argv[i], duplicate_string(""));
     }
     return (0);
 }
