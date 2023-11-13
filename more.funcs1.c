@@ -20,12 +20,12 @@ int errorToInteger(char *string)
             result *= 10;
             result += (string[i] - '0');
             if (result > INT_MAX)
-                return -1;
+                return (-1);
         } 
         else 
-            return -1;
+            return (-1);
     }
-    return (int)result;
+    return ((int)result);
 }
 
 /**
@@ -82,7 +82,7 @@ int printDecimal(int inputNumber, int fd)
    __putchar('0' + current);
     count++;
     
-    return count;
+    return (count);
 }
 
 /**
@@ -119,7 +119,7 @@ char *convertToText(long int num, int base, int flags)
 
     if (sign) 
         *--ptr = sign;
-    return ptr;
+    return (ptr);
 }
 
 /**
