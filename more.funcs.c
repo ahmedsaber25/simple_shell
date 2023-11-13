@@ -22,9 +22,9 @@ int isDelimiter(char c, char *delimiters)
     while (*delimiters) 
     {
         if (*delimiters++ == c)
-            return 1;
+            return (1);
     }
-    return 0;
+    return (0);
 }
 
 /**
@@ -34,9 +34,9 @@ int isDelimiter(char c, char *delimiters)
  */
 int isAlphabetic(int c) {
     if ((c >= 'a' && c <= 'z') || (c >= 'A' && charInput <= 'Z')) 
-        return 1; 
+        return (1); 
     else 
-        return 0;
+        return (0);
 }
 
 /**
@@ -71,5 +71,5 @@ int convertToInteger(char *string)
     else 
         output = result;
 
-    return output;
+    return (output);
 }
