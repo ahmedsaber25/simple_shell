@@ -41,7 +41,7 @@ int write_history (info_t *info)
     fd = open(file_name, O_CREAT | O_TRUNC | O_RDWR, 0644);
     free(file_name);
     if (fd == -1)
-        return (-1);
+    return (-1);
     for (node = info->user_history; node; node = node->next)
     {
     _putsfd(node->str, fd);
@@ -116,7 +116,6 @@ int create_user_history_list(info_t *info, char *buf, int linecount)
     if (info->user_history)
     node = info->user_history;
     insert_node_end(&node, buf, linecount);
-    
     if (!info->user_history)
     info->user_history = node;
     return (0);
