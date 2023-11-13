@@ -23,7 +23,7 @@ int my_exit(info_t *info)
     return (1);
  }
 info->error_number = errorToInteger (info->argv[1]);
-return -(2);
+return (-2);
 }
 info->error_number = -1;
 return (-2);
@@ -66,17 +66,19 @@ _puts(_getenv(info, "OLDPWD="));
 _putchar('\n');
 chdir_return = /* TODO: what should this be? */
     chdir((directory = _getenv(info, "OLDPWD=")) ? directory : "/");
-} else {
-	chdir_return = chdir(info->argv[1]);
+} else 
+{
+chdir_return = chdir(info->argv[1]);
 }
 if (chdir_return == -1)
 {
     displayError(info, "can't cd to ");
     _eputs(info->argv[1]);
     _eputchar('\n');
-} else {
-        _setenv(info, "OLDPWD", _getenv(info, "PWD="));
-        _setenv(info, "PWD", getcwd(buffer, 1024));
+} else 
+{
+_setenv(info, "OLDPWD", _getenv(info, "PWD="));
+_setenv(info, "PWD", getcwd(buffer, 1024));
 }
 return (0);
 }
