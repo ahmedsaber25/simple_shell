@@ -13,19 +13,19 @@ int errorToInteger(char *string)
 
     if (*string == '+')
         string++;
-    for (i = 0; string[i] != '\0'; i++) 
-    {
-        if (string[i] >= '0' && string[i] <= '9') 
-        {
-            result *= 10;
-            result += (string[i] - '0');
-            if (result > INT_MAX)
-                return (-1);
-        } 
-        else 
-            return (-1);
-    }
-    return ((int)result);
+for (i = 0; string[i] != '\0'; i++) 
+{
+if (string[i] >= '0' && string[i] <= '9') 
+{
+  result *= 10;
+  result += (string[i] - '0');
+  if (result > INT_MAX)
+   return (-1);
+} 
+  else 
+   return (-1);
+}
+ return ((int)result);
 }
 
 /**
@@ -58,31 +58,30 @@ int printDecimal(int inputNumber, int fd)
     int (*__putchar)(char) = _putchar;
     int i, count = 0;
     unsigned int absoluteValue, current;
-
-    if (fd == STDERR_FILENO) 
+ if (fd == STDERR_FILENO) 
         __putchar = _eputchar;
-    if (inputNumber < 0) 
-    {
-        absoluteValue = -inputNumber;
-        __putchar('-');
-        count++;
-    } 
-    else 
-        absoluteValue = inputNumber;
-    current = absoluteValue;
-    for (i = 1000000000; i > 1; i /= 10) 
-    {
-        if (absoluteValue / i) 
-        {
-            __putchar('0' + current / i);
-            count++;
-        }
-        current %= i;
-    }
-   __putchar('0' + current);
+if (inputNumber < 0) 
+{
+   absoluteValue = -inputNumber;
+   __putchar('-');
+   count++;
+} 
+ else 
+   absoluteValue = inputNumber;
+   current = absoluteValue;
+for (i = 1000000000; i > 1; i /= 10) 
+{
+  if (absoluteValue / i) 
+  {
+    __putchar('0' + current / i);
+    count++;
+  }
+    current %= i;
+}
+    __putchar('0' + current);
     count++;
     
-    return (count);
+return (count);
 }
 
 /**
@@ -95,31 +94,30 @@ int printDecimal(int inputNumber, int fd)
  */
 char *convertToText(long int num, int base, int flags) 
 {
-    static char *array;
-    static char buffer[50];
-    char sign = 0;
-    char *ptr;
-    unsigned long n = num;
+  static char *array;
+  static char buffer[50];
+  char sign = 0;
+  char *ptr;
+  unsigned long n = num;
 
-    if (!(flags & CONVERT_UNSIGNED) && num < 0) 
-    {
-        n = -num;
-        sign = '-';
-    }
-    array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-    ptr = &buffer[49];
-    *ptr = '\0';
+  if (!(flags & CONVERT_UNSIGNED) && num < 0) 
+  {
+     n = -num;
+     sign = '-';
+  }
+  array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+  ptr = &buffer[49];
+  *ptr = '\0';
 
-    do  
-    {
-        *--ptr = array[n % base];
-        n /= base;
-    } 
-        hile (n != 0);
-
-    if (sign) 
-        *--ptr = sign;
-    return (ptr);
+  do  
+  {
+     *--ptr = array[n % base];
+     n /= base;
+  } 
+  while (n != 0);
+  if (sign) 
+     *--ptr = sign;
+  return (ptr);
 }
 
 /**
@@ -130,12 +128,12 @@ char *convertToText(long int num, int base, int flags)
  */
 void eliminateComments(char *buf) 
 {
-    int i;
+  int i;
 
-    for (i = 0; buf[i] != '\0'; i++) 
-        if (buf[i] == '#' && (!i || buffer[i - 1] == ' ')) 
-        {
-            buf[i] = '\0';
-            break;
-        }
+  for (i = 0; buf[i] != '\0'; i++) 
+    if (buf[i] == '#' && (!i || buffer[i - 1] == ' ')) 
+    {
+       buf[i] = '\0';
+         break;
+    }
 }
