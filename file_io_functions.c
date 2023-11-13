@@ -81,7 +81,7 @@ int read_history(info_t *info)
         return (0);
      rdlen = read(fd, buf, file_size);
     buf[file_size] = 0;
-    if ( rdlen <= 0)
+    if (rdlen <= 0)
         return (free(buf), 0);
     close(fd);
     for (i = 0; i < file_size; i++)
