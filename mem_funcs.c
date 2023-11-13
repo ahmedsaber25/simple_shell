@@ -13,7 +13,7 @@ char *_fill_memory(char *string, char b, unsigned int n)
 
 	for (i = 0; i < n; i++)
 		string[i] = b;
-	return string;
+	return (string);
 }
 
 /**
@@ -44,19 +44,19 @@ void *_realloc(void *ptr, unsigned int old_block_size, unsigned int new_block_si
 	char *p;
 
 	if (!ptr)
-		return malloc(new_block_size);
+		return (malloc(new_block_size));
 	if (!new_block_size)
 		return (free(ptr), NULL);
 	if (new_block_size == old_block_size)
-		return ptr;
+		return (ptr);
 	
 	p = malloc(new_block_size);
 	if (!p)
-		return NULL;
+		return (NULL);
 
 	old_block_size = old_block_size < new_block_size ? old_block_size : new_block_size;
 	while (old_block_size--)
 		new_ptr[old_block_size] = ((char *)ptr)[old_block_size];
 	free(ptr);
-	return p;
+	return (p);
 }
