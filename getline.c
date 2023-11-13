@@ -27,16 +27,16 @@ ssize_t receive_user_input_buffer(info_t *info, char **buf, size_t *len)
 	if (bytes_read > 0) 
 	{
 		if ((*buf)[bytes_read - 1] == '\n') 
-	        {
-		  (*buf)[bytes_read - 1] = '\0'; /* remove trailing newline */
-		  bytes_read--;
-                }
+	    {
+		    (*buf)[bytes_read - 1] = '\0'; /* remove trailing newline */
+		    bytes_read--;
+        }
 	        info->linecount_flag = 1;
 	        eliminateComments(*buf);
 	        create_user_history_list(info, *buf, info->histcount++);
 	        /* if (findCharacter(*buf, ';')) is this a command chain? */
 	        {
-		  *len = bytes_read;
+		      *len = bytes_read;
 	          info->cmd_buf = buf;
 	        }
 	}
