@@ -61,7 +61,7 @@ int _putfd(char c, int fd)
     }
     if (c != FLUSH_BUFFER)
         buf[i++] = c;
-    return 1;
+    return (1);
 }
 
 /**
@@ -76,10 +76,10 @@ int _putsfd(char *str, int fd)
     int i = 0;
 
     if (!str)
-        return 0;
+        return (0);
 
     while (*str) {
         i += _putfd(*str++, fd);
     }
-    return i;
+    return (i);
 }
