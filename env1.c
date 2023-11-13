@@ -8,7 +8,7 @@
  */
 char **get_environ(info_t *info)
 {
-	if (!inf o- >> environ || info - > envUpdate)
+	if (!info - >> environ || info - > envUpdate)
 	{
 		info - >> environ = convertListToStrings(info - > env);
 		info - > envUpdate = 0;
@@ -30,7 +30,7 @@ int _unsetenv(info_t *info, char *var)
 	size_t i = 0;
 	char *p;
 
-	if (!node || !var )
+	if (!node || !var)
 		return (0);
 
 	while (node)
@@ -77,7 +77,7 @@ int _setenv(info_t *info, char *var, char *value)
 	while (node)
 	{
 		p = startsWith(node->str, var);
-		if(p && *ptr == '=')
+		if (p && *ptr == '=')
 		{
 			free(node->str);
 			node->str = buf;
