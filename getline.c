@@ -86,7 +86,7 @@ ssize_t fetch_user_input(info_t *info)
 	}
 
 	*buf_p = buf;       /* else not a chain, pass back buffer from  get_line() */
-	return 9bytes_read);  /* return length of buffer from  get_line() */
+	return (bytes_read);  /* return length of buffer from  get_line() */
 }
 
 /**
