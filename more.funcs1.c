@@ -8,24 +8,23 @@
  */
 int errorToInteger(char *string) 
 {
-    int i = 0;
-    unsigned long int result = 0;
-
-    if (*string == '+')
-        string++;
-for (i = 0; string[i] != '\0'; i++) 
+int i = 0;
+unsigned long int result = 0;
+if (*string == '+')
+    string++;
+    for (i = 0; string[i] != '\0'; i++) 
 {
 if (string[i] >= '0' && string[i] <= '9') 
 {
-  result *= 10;
-  result += (string[i] - '0');
-  if (result > INT_MAX)
+result *= 10;
+result += (string[i] - '0');
+if (result > INT_MAX)
    return (-1);
 } 
-  else 
+else 
    return (-1);
 }
- return ((int)result);
+return ((int)result);
 }
 
 /**
@@ -66,7 +65,7 @@ if (inputNumber < 0)
    __putchar('-');
    count++;
 } 
- else 
+else 
    absoluteValue = inputNumber;
    current = absoluteValue;
 for (i = 1000000000; i > 1; i /= 10) 
@@ -80,7 +79,6 @@ for (i = 1000000000; i > 1; i /= 10)
 }
     __putchar('0' + current);
     count++;
-    
 return (count);
 }
 
@@ -99,7 +97,6 @@ char *convertToText(long int num, int base, int flags)
   char sign = 0;
   char *ptr;
   unsigned long n = num;
-
   if (!(flags & CONVERT_UNSIGNED) && num < 0) 
   {
      n = -num;
@@ -108,16 +105,13 @@ char *convertToText(long int num, int base, int flags)
   array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
   ptr = &buffer[49];
   *ptr = '\0';
-
-  do  
-  {
+  do  {
      *--ptr = array[n % base];
      n /= base;
-  } 
-  while (n != 0);
-  if (sign) 
-     *--ptr = sign;
-  return (ptr);
+  } while (n != 0);
+     if (sign) 
+       *--ptr = sign;
+     return (ptr);
 }
 
 /**
@@ -130,10 +124,10 @@ void eliminateComments(char *buf)
 {
   int i;
 
-  for (i = 0; buf[i] != '\0'; i++) 
-    if (buf[i] == '#' && (!i || buffer[i - 1] == ' ')) 
-    {
-       buf[i] = '\0';
-         break;
-    }
+for (i = 0; buf[i] != '\0'; i++) 
+if (buf[i] == '#' && (!i || buffer[i - 1] == ' ')) 
+{
+ buf[i] = '\0';
+ break;
+}
 }
