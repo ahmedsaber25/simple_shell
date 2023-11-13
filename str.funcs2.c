@@ -65,10 +65,11 @@ char *concatenateStringWithLimit(char *destination, char *source, int n)
  */
 char *findCharacter(char *string, char c)
 {
-    do {
-        if (*string == c)
-        return (string);
-    } while (*string++ != '\0');
+do 
+{
+  if (*string == c)
+  return (string);
+} while (*string++ != '\0');
 
     return (NULL);
 }
