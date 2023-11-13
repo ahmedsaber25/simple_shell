@@ -91,7 +91,7 @@ size_t print_list_data(const list_t *h)
 		h = h->next;
 		i++;
 	}
-	return i;
+	return (i);
 }
 
 /**
@@ -107,7 +107,7 @@ int remove_node_at_index(list_t **head, unsigned int index)
 	unsigned int i = 0;
 
 	if (!head || !*head)
-		return 0;
+		return (0);
 
 	if (!index)
 	{
@@ -115,7 +115,7 @@ int remove_node_at_index(list_t **head, unsigned int index)
 		*head = (*head)->next;
 		free(node->str);
 		free(node);
-		return 1;
+		return (1);
 	}
 	node = *head;
 	while (node)
@@ -125,13 +125,13 @@ int remove_node_at_index(list_t **head, unsigned int index)
 			prev_node->next = node->next;
 			free(node->str);
 			free(node);
-			return 1;
+			return (1);
 		}
 		i++;
 		prev_node = node;
 		node = node->next;
 	}
-	return 0;
+	return (0);
 }
 
 /**
