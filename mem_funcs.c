@@ -49,7 +49,6 @@ void *_realloc(void *ptr, unsigned int old_block_size, unsigned int new_block_si
 		return (free(ptr), NULL);
 	if (new_block_size == old_block_size)
 		return (ptr);
-	
 	p = malloc(new_block_size);
 	if (!p)
 		return (NULL);
