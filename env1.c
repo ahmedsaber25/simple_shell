@@ -68,7 +68,7 @@ int _setenv(info_t *info, char *var, char *value)
 
 	buf = malloc(_strlen(var) + stringLength(value) + 2);
 	if (!buf)
-		return 1;
+		return (1);
 	copyString(buf, var);
 	stringConcat(buf, "=");
 	stringConcat(buf, value);
