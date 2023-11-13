@@ -47,7 +47,6 @@ list_t *insert_node_end(list_t **head, const char *str, int num)
 
 	if (!head)
 		return (NULL);
-	
 	node = *head;
 	new_node = malloc(sizeof(list_t));
 	if (!new_node)
