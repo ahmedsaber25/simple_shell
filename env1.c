@@ -31,7 +31,7 @@ int _unsetenv(info_t *info, char *var)
 	char *p;
 
 	if (!node || !var )
-		return 0;
+		return (0);
 
 	while (node)
 	{
@@ -64,7 +64,7 @@ int _setenv(info_t *info, char *var, char *value)
 	char *p;
 
 	if (!var || !value)
-		return 0;
+		return (0);
 
 	buf = malloc(_strlen(var) + stringLength(value) + 2);
 	if (!buf)
@@ -82,12 +82,12 @@ int _setenv(info_t *info, char *var, char *value)
 			free(node->str);
 			node->str = buf;
 			info->envUpdate = 1;
-			return 0;
+			return (0);
 		}
 		node = node->next;
 	}
 	addNodeEnd(&(info->env), buf, 0);
 	free(buf);
 	info->envUpdate = 1;
-	return 0;
+	return (0);
 }
