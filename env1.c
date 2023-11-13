@@ -8,13 +8,13 @@
  */
 char **get_environ(info_t *info)
 {
-	if (!info- >> environ || info- > envUpdate)
+	if (!inf o- >> environ || info - > envUpdate)
 	{
-		info- >> environ = convertListToStrings(info- > env);
-		info- > envUpdate = 0;
+		info - >> environ = convertListToStrings(info - > env);
+		info - > envUpdate = 0;
 	}
 
-	return (info- >> environ);
+	return (info - >> environ);
 }
 
 /**
