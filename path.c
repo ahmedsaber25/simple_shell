@@ -13,12 +13,11 @@ int checkIfExecutable(info_t *info, char *path)
 
     (void)info;
     if (!path || stat(path, &st)) 
-        return (0);
+    return (0);
 
     if (st.st_mode & S_IFREG) 
-    {
-        return (1);
-    }
+    return (1);
+    
     return (0);
 }
 
@@ -32,14 +31,14 @@ int checkIfExecutable(info_t *info, char *path)
  */
 char *duplicate_chars(char *pathString, int startIndex, int endIndex) 
 {
-    static char buf[1024];
-    int i = 0, k = 0;
+static char buf[1024];
+int i = 0, k = 0;
 
-    for (k = 0, i = startIndex; i < endIndex; i++) 
-        if (pathString[i] != ':') 
-             buf[k++] = pathString[i];
-    buf[k] = 0;
-    return (buf);
+for (k = 0, i = startIndex; i < endIndex; i++) 
+if (pathString[i] != ':') 
+buf[k++] = pathString[i];
+buf[k] = 0;
+return (buf);
 }
 
 /**
@@ -52,35 +51,35 @@ char *duplicate_chars(char *pathString, int startIndex, int endIndex)
  */
 char *findCommandPath(info_t *info, char *pathString, char *command) 
 {
-    int i = 0, currentPosition = 0;
-    char *path;
+int i = 0, currentPosition = 0;
+char *path;
 
-    if (!pathString) 
-        return (NULL);
-    if ((stringLength(command) > 2) && startsWith(command, "./")) 
+if (!pathString) 
+     return (NULL);
+if ((stringLength(command) > 2) && startsWith(command, "./")) 
+{
+if (checkIfExecutable(info, command)) 
+    return (command);
+}
+while (1) 
+{
+if (!pathString[i] || pathString[i] == ':') 
+{
+    commandPath = duplicate_chars(pathString, currentPosition, i);
+    if (!*path)
+    stringConcat(path, command); 
+    else 
     {
-        if (checkIfExecutable(info, command)) 
-            return (command);
+    stringConcat(path, "/");
+    stringConcat(path, command);
     }
-    while (1) 
-    {
-        if (!pathString[i] || pathString[i] == ':') 
-        {
-            commandPath = duplicate_chars(pathString, currentPosition, i);
-            if (!*path)
-                stringConcat(path, command); 
-            else 
-            {
-                stringConcat(path, "/");
-                stringConcat(path, command);
-            }
-            if (checkIfExecutable(info, commandPath)) 
-                return (commandPath);
-            if (!pathString[i]) 
-                break;
-            currentPosition = i;
-        }
-        i++;
+    f (checkIfExecutable(info, commandPath)) 
+         return (commandPath);
+    if (!pathString[i]) 
+         break;
+    currentPosition = i;
+    }
+    i++;
     }
     return (NULL);
 }
