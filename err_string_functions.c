@@ -11,11 +11,11 @@ void _eputs(char *str)
     int i = 0;
 
     if (!str)
-        return;
+    return;
     while (str[i] != '\0') 
     {
-        _eputchar(str[i]);
-        i++;
+    _eputchar(str[i]);
+    i++;
     }
 }
 
@@ -33,11 +33,11 @@ int _eputchar(char c)
 
     if (c == FLUSH_BUFFER || buf >= WRITE_BUFFER_SIZE) 
     {
-        write(2, buf, i);
-        i = 0;
+    write(2, buf, i);
+    i = 0;
     }
     if (c != FLUSH_BUFFER)
-        buf[i++] = c;
+    buf[i++] = c;
     return (1);
 }
 
@@ -56,11 +56,11 @@ int _putfd(char c, int fd)
 
     if (c == FLUSH_BUFFER || buf >= WRITE_BUFFER_SIZE) 
     {
-        write(fd, buf, i);
-        i = 0;
+    write(fd, buf, i);
+    i = 0;
     }
     if (c != FLUSH_BUFFER)
-        buf[i++] = c;
+    buf[i++] = c;
     return (1);
 }
 
@@ -76,10 +76,11 @@ int _putsfd(char *str, int fd)
     int i = 0;
 
     if (!str)
-        return (0);
+    return (0);
 
-    while (*str) {
-        i += _putfd(*str++, fd);
+    while (*str) 
+    {
+    i += _putfd(*str++, fd);
     }
     return (i);
 }
