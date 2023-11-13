@@ -88,5 +88,5 @@ char **splitStringByChar(char *str, char d)
 		string[j][m] = 0;
 	}
 	string[j] = (NULL);
-	return string;
+	return (string);
 }
