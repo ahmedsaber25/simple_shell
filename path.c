@@ -74,9 +74,9 @@ if (!pathString[i] || pathString[i] == ':')
     stringConcat(path, command);
     }
     f (checkIfExecutable(info, commandPath)) 
-         return (commandPath);
+    return (commandPath);
     if (!pathString[i]) 
-         break;
+    break;
     currentPosition = i;
     }
     i++;
