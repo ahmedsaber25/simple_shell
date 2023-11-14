@@ -24,8 +24,7 @@ ssize_t receive_user_input_buffer(info_t *info, char **buf, size_t *len)
 #else
 		bytes_read = get_line(info, buf, &length_position);
 #endif
-if (bytes_read > 0) 
-{
+if (bytes_read > 0) {
 if ((*buf)[bytes_read - 1] == '\n') 
 {
   (*buf)[bytes_read - 1] = '\0'; /* remove trailing newline */
